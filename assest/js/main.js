@@ -5,14 +5,36 @@
 const slipID = document.querySelector(".id");
 const articleNumber = document.querySelector(".article__advice-num");
 const articleAdvice = document.querySelector(".article__advice-random-art");
+const loaderIcon = document.querySelector(".fa-solid");
+const btnAdvice = document.querySelector(".ri-apps-2-line");
 
-function randomAdvice() {
+/* function randomAdvice() {
   fetch("https://api.adviceslip.com/advice")
     .then((response) => response.json())
     .then((data) => {
       articleNumber.textContent = `Advice #${data.slip.id}`;
       articleAdvice.textContent = data.slip.advice;
     });
+} */
+async function randomAdvice() {
+  loaderIcon.style.display = "block";
+  btnAdvice.style.display = "none";
+  const response = await fetch("https://api.adviceslip.com/advice");
+  const data = await response.json();
+
+  if (response) {
+    loaderIcon.style.display = "none";
+    btnAdvice.style.display = "block";
+  }
+
+  if (response.ok) {
+    articleNumber.textContent = `Advice #${data.slip.id}`;
+    articleAdvice.textContent = data.slip.advice;
+  }
+
+  if (!response.ok) {
+    articleAdvice.textContent = "Failed to Fetch Data due to Network";
+  }
 }
 randomAdvice();
 

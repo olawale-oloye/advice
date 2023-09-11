@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body,
@@ -16,6 +17,7 @@ html {
 
   --Light-Cyan: hsl(193, 38%, 86%);
   --Neon-Green: hsl(150, 100%, 66%);
+  --white: #fff;
 
   /* ### Neutral */
 
@@ -40,7 +42,7 @@ body {
   border-radius: 2rem;
   background-color: var(--Dark-Grayish-Blue);
   width: 550px;
-  height: 375px;
+  height: 400px;
   text-align: center;
   position: relative;
   margin-top: 10rem;
@@ -50,7 +52,7 @@ body {
   margin-top: 45px;
   text-transform: uppercase;
   color: var(--Neon-Green);
-  font-weight: 400;
+  font-weight: 700;
   font-size: 1rem;
   letter-spacing: 3px;
 }
@@ -65,9 +67,17 @@ body {
 
 .article__advice-floater-cont {
   position: absolute;
-  top: 94%;
-  left: 45%;
-  /* transform: translate(50%, 50%); */
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.fa-solid {
+  display: none;
+}
+
+i {
+  color: var(--Grayish-Blue);
 }
 
 @keyframes radial {
@@ -81,13 +91,37 @@ body {
   }
 }
 
+span {
+  display: block;
+}
+
+.article__advice-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 0 3rem;
+}
+
+.ri-pause-line {
+  color: var(--white);
+  font-size: 2.5rem;
+}
+
+.article__advice-bottom-span {
+  height: 1px;
+  width: 40%;
+  background-color: var(--Grayish-Blue);
+}
+
 .article__advice-floater {
   border: 0 none var(--Light-Cyan);
   border-radius: 50%;
   font-size: 2rem;
-  padding: 10px 15px;
+  padding: 25px 25px;
   background-color: var(--Neon-Green);
   cursor: pointer;
+  display: block;
 }
 
 .article__advice-floater:hover {
@@ -95,8 +129,8 @@ body {
   animation: radial 10s ease-in-out infinite;
 }
 
-.id,
+/* .id,
 .title,
 .state {
   display: block;
-}
+} */
