@@ -7,6 +7,7 @@ const articleNumber = document.querySelector(".article__advice-num");
 const articleAdvice = document.querySelector(".article__advice-random-art");
 const loaderIcon = document.querySelector(".fa-solid");
 const btnAdvice = document.querySelector(".ri-apps-2-line");
+// const loaderHover = document.querySelector(".article__advice-floater:hover");
 
 /* function randomAdvice() {
   fetch("https://api.adviceslip.com/advice")
@@ -30,6 +31,7 @@ async function randomAdvice() {
   if (response.ok) {
     articleNumber.textContent = `Advice #${data.slip.id}`;
     articleAdvice.textContent = data.slip.advice;
+    // loaderHover.style.display = "none";
   }
 
   if (!response.ok) {
